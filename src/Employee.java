@@ -55,7 +55,7 @@ public class Employee {
     public String toString() {
         return "Employee " +
                 "id" + id +
-                ", fullName:" + fullName +
+                ", fullName: " + fullName +
                 ", deportment - " + deportment +
                 ", salary = " + salary;
     }

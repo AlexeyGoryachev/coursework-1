@@ -13,6 +13,55 @@ public class Main {
         employees[8] = new Employee("Henry Wolf", 5, 40000);
         employees[9] = new Employee("Elsa Hamster", 5, 35000);
 
+        printEmployeesList();
+        System.out.println("Сумма зарплат всех сотрудников = " + getSalarySum());
+        System.out.println("Сотрудник с минимальной зарплатой: " + findEmployeeWithMinSalary());
+        System.out.println("Сотрудник с максимальной зарплатой: " + findEmployeeWithMaxSalary());
+        System.out.println("Средняя зарплата = " + getAverageSalary());
+        printEmployeesFullNames();
     }
 
+    private static void printEmployeesList() {
+        for (Employee employee : employees) {
+            System.out.println(employee);
+        }
+    }
+
+    private static int getSalarySum() {
+        int sum = 0;
+        for (int i = 0; i < employees.length; i++) {
+            sum += employees[i].getSalary();
+        }
+        return sum;
+    }
+
+    private static Employee findEmployeeWithMinSalary() {
+        Employee employeeWithMinSalary = employees[0];
+        for (Employee employee : employees) {
+            if (employee.getSalary() < employeeWithMinSalary.getSalary()) {
+                employeeWithMinSalary = employee;
+            }
+        }
+        return employeeWithMinSalary;
+    }
+
+    private static Employee findEmployeeWithMaxSalary() {
+        Employee employeeWithMaxSalary = employees[0];
+        for (Employee employee : employees) {
+            if (employee.getSalary() > employeeWithMaxSalary.getSalary()) {
+                employeeWithMaxSalary = employee;
+            }
+        }
+        return employeeWithMaxSalary;
+    }
+
+    private static double getAverageSalary() {
+        return (double) getSalarySum() / employees.length;
+    }
+
+    public static void printEmployeesFullNames() {
+        for (Employee employee : employees) {
+            System.out.println("ФИО сотрудника: " + employee.getFullName());
+        }
+    }
 }
